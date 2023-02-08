@@ -2,6 +2,8 @@ package com.esprit.alternances.kaddem.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+
 @Entity
 public class Departement implements Serializable {
     @Id
@@ -11,6 +13,9 @@ public class Departement implements Serializable {
 
 
     private String nomDepartment;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="departement")
+    private Set<Etudiant> etudiant;
+ @ManyToOne
+private Universite university;
 
 }
